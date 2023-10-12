@@ -34,6 +34,6 @@ class Eintrag{
     }
 
     public String getEintrag(){
-        return anlass + "mit" + kontakt + "um" + uhrzeit;
+        return anlass + " mit " + kontakt + " um " + uhrzeit;
     }
 }

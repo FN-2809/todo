@@ -51,21 +51,32 @@ class VerketteteListe{
     }
 
     public String loescheKnotenMitName(String name){
-        if(erster.getInhalt().getKontakt().equals(name)){
+        if(this.istLeer()){
             return "Liste leer";
         }
         if(erster.getInhalt().getKontakt().equals(name)){
-            erster = null;
+            erster = erster.getNaechster();
             return "erfolgreich";
         }
         Knoten aeffchen = erster;
         while(aeffchen.getNaechster() != null){
-            if(aeffchen.getNaechster().getInhalt().getEintrag().equals(name)){
+            if(aeffchen.getNaechster().getInhalt().getKontakt().equals(name)){
                 aeffchen.setNaechster(aeffchen.getNaechster().getNaechster());
                 return "erfolgreich";
             }
             aeffchen = aeffchen.getNaechster();
         }
         return "nicht gefunden";
+    }
+
+    public void printList(){
+        if(!this.istLeer()){
+            Knoten aeffchen = erster;
+            while(aeffchen.getNaechster() != null){
+                aeffchen.printNode();
+                aeffchen = aeffchen.getNaechster();
+            }
+            aeffchen.printNode();
+        }
     }
 }

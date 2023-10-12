@@ -21,4 +21,7 @@ public class Knoten {
     public void setNaechster(Knoten naechster){
         this.naechster = naechster;
     }
+    public void printNode(){
+        System.out.println(inhalt.getEintrag());
+    }
 }
