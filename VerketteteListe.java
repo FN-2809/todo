@@ -79,4 +79,73 @@ class VerketteteListe{
             aeffchen.printNode();
         }
     }
+
+    public Eintrag inhalt(int index){
+        if((index < 0) || (index >= this.anzahlElemente())){
+            return new Eintrag(null, null, null);
+        }
+
+        Knoten aeffchen = erster;
+        for(int i = 0; i < index; i++){
+            aeffchen = aeffchen.getNaechster();
+        }
+        return aeffchen.getInhalt();
+    }
+
+    public void ersetzen(int index, Eintrag neu){
+        if((index < 0) || (index >= this.anzahlElemente())){
+            return;
+        }
+
+        Knoten aeffchen = erster;
+        for(int i = 0; i < index; i++){
+            aeffchen = aeffchen.getNaechster();
+        }
+        aeffchen.setInhalt(neu);
+    }
+
+    public void einfuegen(int index, Eintrag neu){
+        if((index < 0) || (index >= this.anzahlElemente())){
+            return;
+        }
+
+        Knoten neuerKnoten = new Knoten(neu);
+
+        if(index == 0){
+            neuerKnoten.setNaechster(erster.getNaechster());
+            this.erster = neuerKnoten;
+            return;
+        }
+
+        Knoten aeffchen = erster;
+        for(int i = 0; i < (index - 1); i++){
+            aeffchen = aeffchen.getNaechster();
+        }
+        neuerKnoten.setNaechster(aeffchen.getNaechster().getNaechster());
+        aeffchen.setNaechster(neuerKnoten);
+    }
+
+    public Eintrag entfernen(int index){
+        Eintrag inhalt = new Eintrag(null, null, null);
+        if((index < 0) || (index >= this.anzahlElemente())){
+            return inhalt;
+        }
+
+        if(index == 0){
+            inhalt = erster.getInhalt();
+            erster = erster.getNaechster();
+        }else{
+            Knoten aeffchen = erster;
+            for(int i = 0; i < (index - 1); i++){
+                aeffchen = aeffchen.getNaechster();
+            }
+            inhalt = aeffchen.getNaechster().getInhalt();
+            aeffchen.setNaechster(aeffchen.getNaechster().getNaechster());
+        }
+        return inhalt;
+    }
+
+    public void entfernen(Eintrag index){
+
+    }
 }

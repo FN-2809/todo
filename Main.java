@@ -9,10 +9,6 @@ public class Main {
         todoListe.anhaengen(new Eintrag("19:00", "null", "Pokerturnier"));
         todoListe.printList();
         System.out.println();
-        todoListe.loescheKnotenMitName("Clara");
-        todoListe.printList();
-        System.out.println();
-        todoListe.loescheKnotenMitName("Matze");
-        todoListe.printList();
+        System.out.println(todoListe.inhalt(2).getEintrag());
     }
 }
