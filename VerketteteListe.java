@@ -144,8 +144,4 @@ class VerketteteListe{
         }
         return inhalt;
     }
-
-    public void entfernen(Eintrag index){
-
-    }
 }
