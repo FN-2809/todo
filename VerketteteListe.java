@@ -121,7 +121,7 @@ class VerketteteListe{
         for(int i = 0; i < (index - 1); i++){
             aeffchen = aeffchen.getNaechster();
         }
-        neuerKnoten.setNaechster(aeffchen.getNaechster().getNaechster());
+        neuerKnoten.setNaechster(aeffchen.getNaechster());
         aeffchen.setNaechster(neuerKnoten);
     }
 
